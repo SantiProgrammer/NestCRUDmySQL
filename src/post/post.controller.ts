@@ -14,14 +14,18 @@ import { CreatePostDto, EditPostDto } from './dtos';
 export class PostController {
   @Get()
   getMany() {
-    return 'OK';
+    return {
+      status: '✅ success',
+      method: 'get',
+      message: 'OK',
+    };
   }
 
   @Get(':id')
   getOne(@Param('id', ParseIntPipe) id: number) {
     console.log(typeof id);
     return {
-      status: 'success',
+      status: '✅ success',
       method: 'get',
       id: id,
     };
@@ -35,7 +39,7 @@ export class PostController {
   @Put(':id')
   editOne(@Param('id') id: string, @Body() dto: EditPostDto) {
     return {
-      status: 'success',
+      status: '✅ success',
       method: 'put',
       dto: dto,
     };
@@ -44,7 +48,7 @@ export class PostController {
   @Delete(':id')
   deleteOne(@Param('id') id: string) {
     return {
-      status: 'success',
+      status: '✅ success',
       method: 'delete',
       id: id,
     };
